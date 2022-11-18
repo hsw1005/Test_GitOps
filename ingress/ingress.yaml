@@ -7,7 +7,7 @@ metadata:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: https://b90a9d57-nks-kr1.container.nhncloud.com:6443 #133.186.152.235
+  - host: 133.186.219.251 #https://b90a9d57-nks-kr1.container.nhncloud.com:6443 #133.186.152.235
     http:
       paths:
       - path: /
