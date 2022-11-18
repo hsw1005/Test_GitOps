@@ -8,7 +8,7 @@ metadata:
     ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: b90a9d57-nks-kr1.container.nhncloud.com
+  - host: mynginx.133.186.152.235.sslip.io
     http:
       paths:
       - path: /
