@@ -1,13 +1,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ##
+  name: mynginx-traefik-ingress
   annotations:
     ingress.kubernetes.io/rewrite-target: "/"
-    kubernetes.io/ingress.class: ##
+    kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: ##
+  - host: https://b90a9d57-nks-kr1.container.nhncloud.com:6443
     http:
       paths:
       - path: /
