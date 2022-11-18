@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mynginx
+  name: hswnginx
 spec:
   replicas: 3
   selector:
     matchLabels:
-      run: mynginx
+      run: hswnginx
   template:
     metadata:
       labels:
-        run: mynginx
+        run: hswnginx
     spec:
       containers:
       - image: nginx
-        name: mynginx
+        name: hswnginx
         ports:
         - containerPort: 80
