@@ -5,7 +5,7 @@ metadata:
     app.kubernetes.io/component: server
   name: nginx-route
 spec:
-  host: ##
+  host: 133.186.152.235
   port:
     targetPort: 80
 #  tls:
