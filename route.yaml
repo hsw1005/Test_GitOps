@@ -5,7 +5,7 @@ metadata:
     app.kubernetes.io/component: server
   name: nginx-route
 spec:
-  host: 133.186.219.251 #https://b90a9d57-nks-kr1.container.nhncloud.com:6443 #133.186.152.235
+  host: 103.218.159.38 #https://b90a9d57-nks-kr1.container.nhncloud.com:6443 #133.186.152.235
   port:
     targetPort: 80
 #  tls:
