@@ -8,7 +8,7 @@ metadata:
     ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: https://b90a9d57-nks-kr1.container.nhncloud.com:6443
+  - host: b90a9d57-nks-kr1.container.nhncloud.com
     http:
       paths:
       - path: /
