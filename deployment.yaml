@@ -35,15 +35,3 @@ spec:
         name: python
 
       
-      
-      
-#   template:
-#     metadata:
-#       labels:
-#         run: flask-app
-#     spec:
-#       containers:
-#       - image: hamsw1005/python:test7
-#         name: flask-app
-#         ports:
-#         - containerPort: 5000
