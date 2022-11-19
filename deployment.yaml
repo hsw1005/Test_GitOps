@@ -8,18 +8,29 @@ spec:
   selector:
     matchLabels:
       app: flask-app
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
+      strategy:
+  blueGreen: 
+    #activeService는 이전의 배포된 Blue 서비스
+    activeService: rollout-bluegreen-active
+
+    #previewService는 새롭게 배포될 Green 서비스
+    previewService: rollout-bluegreen-preview
+
+    #autoPromotioEnabled 옵션은 Blue/Green 배포를 자동으로 진행할 것인지 여부. false 옵션을 사용해 수동으로 지정
+    autoPromotionEnabled: false
+    
+#   strategy:
+#     rollingUpdate:
+#       maxSurge: 25%
+#       maxUnavailable: 25%
+#     type: RollingUpdate
   template:
     metadata:
       labels:
         app: flask-app
     spec:
       containers:
-      - image: hamsw1005/python:test7
+      - image: hamsw1005/python:test9
         imagePullPolicy: IfNotPresent
         name: python
 
