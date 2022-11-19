@@ -8,16 +8,16 @@ spec:
   selector:
     matchLabels:
       app: flask-app
-      strategy:
-  blueGreen: 
-    #activeService는 이전의 배포된 Blue 서비스
-    activeService: rollout-bluegreen-active
+  strategy:
+    blueGreen: 
+      #activeService는 이전의 배포된 Blue 서비스
+      activeService: rollout-bluegreen-active
 
-    #previewService는 새롭게 배포될 Green 서비스
-    previewService: rollout-bluegreen-preview
+      #previewService는 새롭게 배포될 Green 서비스
+      previewService: rollout-bluegreen-preview
 
-    #autoPromotioEnabled 옵션은 Blue/Green 배포를 자동으로 진행할 것인지 여부. false 옵션을 사용해 수동으로 지정
-    autoPromotionEnabled: false
+      #autoPromotioEnabled 옵션은 Blue/Green 배포를 자동으로 진행할 것인지 여부. false 옵션을 사용해 수동으로 지정
+      autoPromotionEnabled: false
     
 #   strategy:
 #     rollingUpdate:
