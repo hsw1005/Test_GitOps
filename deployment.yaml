@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mynginx
+  name: flask-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      run: mynginx
+      run: flask-app
   template:
     metadata:
       labels:
-        run: mynginx
+        run: flask-app
     spec:
       containers:
-      - image: nginx
-        name: mynginx
+      - image: hamsw1005/python:v2
+        name: flask-app
         ports:
-        - containerPort: 80
+        - containerPort: 5000
