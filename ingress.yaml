@@ -64,4 +64,3 @@ status:
   loadBalancer:
     ingress:
     - ip: 103.218.159.69
-ubuntu@k8s-manager:~$
