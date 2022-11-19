@@ -1,6 +1,27 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  name: flask-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: "/"
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: 133.186.152.235.nip.io #:30719
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: flask-app
+            port:
+              number: 5000
+
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
   annotations:
     ingress.kubernetes.io/rewrite-target: /
     ingressclass.kubernetes.io/is-default-class: "true"
