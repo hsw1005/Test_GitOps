@@ -40,7 +40,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: 133.186.152.235
+  - host: 133.186.152.235.nip.io:30719
     http:
       paths:
       - backend:
