@@ -1,13 +1,15 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: flask-ingress
+  name: flask-app
   annotations:
-    ingress.kubernetes.io/rewrite-target: "/"
-    kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: "nginx"
+    ingress.kubernetes.io/rewrite-target: /
+    ingressclass.kubernetes.io/is-default-class: "true"
 spec:
+  ingressClassName: nginx
   rules:
-  - host: 133.186.152.235.nip.io #:30719
+  - host: 133.186.152.235.nip.io
     http:
       paths:
       - path: /
@@ -19,55 +21,56 @@ spec:
               number: 5000
 
 
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  annotations:
-    ingress.kubernetes.io/rewrite-target: /
-    ingressclass.kubernetes.io/is-default-class: "true"
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"ingress.kubernetes.io/rewrite-target":"/","ingressclass.kubernetes.io/is-default-class":"true","kubernetes.io/ingress.class":"nginx"},"name":"flask-app","namespace":"default"},"spec":{"ingressClassName":"nginx","rules":[{"host":"133.186.152.235.nip.io","http":{"paths":[{"backend":{"service":{"name":"flask-app","port":{"number":5000}}},"path":"/","pathType":"Prefix"},{"backend":{"service":{"name":"flask-app","port":{"number":5000}}},"path":"/test","pathType":"Prefix"}]}}]}}
-    kubernetes.io/ingress.class: nginx
-  generation: 3
-  managedFields:
-  - apiVersion: networking.k8s.io/v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:metadata:
-        f:annotations:
-          .: {}
-          f:ingress.kubernetes.io/rewrite-target: {}
-          f:ingressclass.kubernetes.io/is-default-class: {}
-          f:kubectl.kubernetes.io/last-applied-configuration: {}
-          f:kubernetes.io/ingress.class: {}
-      f:spec:
-        f:ingressClassName: {}
-        f:rules: {}
-    manager: kubectl
-    operation: Update
-    time: "2022-11-19T07:07:09Z"
-  - apiVersion: networking.k8s.io/v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:status:
-        f:loadBalancer:
-          f:ingress: {}
-    manager: nginx-ingress-controller
-    operation: Update
-    subresource: status
-    time: "2022-11-19T07:30:43Z"
-  name: flask-app
-  namespace: default
-spec:
-  ingressClassName: nginx
-  rules:
-  - host: 133.186.152.235.nip.io:30719
-    http:
-      paths:
-      - backend:
-          service:
-            name: flask-app
-            port:
-              number: 5000
-        path: /
-        pathType: Prefix
+
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   annotations:
+#     ingress.kubernetes.io/rewrite-target: /
+#     ingressclass.kubernetes.io/is-default-class: "true"
+#     kubectl.kubernetes.io/last-applied-configuration: |
+#       {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"ingress.kubernetes.io/rewrite-target":"/","ingressclass.kubernetes.io/is-default-class":"true","kubernetes.io/ingress.class":"nginx"},"name":"flask-app","namespace":"default"},"spec":{"ingressClassName":"nginx","rules":[{"host":"133.186.152.235.nip.io","http":{"paths":[{"backend":{"service":{"name":"flask-app","port":{"number":5000}}},"path":"/","pathType":"Prefix"},{"backend":{"service":{"name":"flask-app","port":{"number":5000}}},"path":"/test","pathType":"Prefix"}]}}]}}
+#     kubernetes.io/ingress.class: nginx
+#   generation: 3
+#   managedFields:
+#   - apiVersion: networking.k8s.io/v1
+#     fieldsType: FieldsV1
+#     fieldsV1:
+#       f:metadata:
+#         f:annotations:
+#           .: {}
+#           f:ingress.kubernetes.io/rewrite-target: {}
+#           f:ingressclass.kubernetes.io/is-default-class: {}
+#           f:kubectl.kubernetes.io/last-applied-configuration: {}
+#           f:kubernetes.io/ingress.class: {}
+#       f:spec:
+#         f:ingressClassName: {}
+#         f:rules: {}
+#     manager: kubectl
+#     operation: Update
+#     time: "2022-11-19T07:07:09Z"
+#   - apiVersion: networking.k8s.io/v1
+#     fieldsType: FieldsV1
+#     fieldsV1:
+#       f:status:
+#         f:loadBalancer:
+#           f:ingress: {}
+#     manager: nginx-ingress-controller
+#     operation: Update
+#     subresource: status
+#     time: "2022-11-19T07:30:43Z"
+#   name: flask-app
+#   namespace: default
+# spec:
+#   ingressClassName: nginx
+#   rules:
+#   - host: 133.186.152.235.nip.io:30719
+#     http:
+#       paths:
+#       - backend:
+#           service:
+#             name: flask-app
+#             port:
+#               number: 5000
+#         path: /
+#         pathType: Prefix
